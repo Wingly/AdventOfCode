@@ -64,7 +64,6 @@ func part2(instructions []string) {
         }
         run, accumulated := execute_instructions(instructions_copy)
 
-        //This could be wrong if the last instruction is a jmp, but whatever
         if run[len(run) -1] == len(instructions) -1 {
             new_accumulated = accumulated
             break
