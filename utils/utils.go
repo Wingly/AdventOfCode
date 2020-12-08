@@ -20,3 +20,13 @@ func Unique_items(slice []string) []string {
     }
     return unique
 }
+
+func Int_in_slice(element int, slice []int) bool {
+    for _, item := range slice {
+        if item == element {
+            return true
+        }
+    }
+    return false
+}
+
