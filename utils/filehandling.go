@@ -32,7 +32,7 @@ func Readlines_as_int_array(fileName string) []int64  {
     scanner := bufio.NewScanner(file)
     int_array := []int64{}
     for scanner.Scan() {
-        int_value, _ := strconv.ParseInt(scanner.Text(), 10, 32)
+        int_value, _ := strconv.ParseInt(scanner.Text(), 10, 64)
         int_array = append(int_array, int_value)
     }
     return int_array

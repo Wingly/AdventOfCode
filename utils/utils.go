@@ -30,3 +30,22 @@ func Int_in_slice(element int, slice []int) bool {
     return false
 }
 
+func Contains_combination(combination int64, slice []int64) bool {
+    for i := 0; i < len(slice); i++ {
+        for j:= 1; j < len(slice) ; j++ {
+            if slice[i] + slice[j] == combination {
+                return true
+            }
+        }
+    }
+    return false
+}
+
+func Sum_slice(slice []int64) int64 {
+    var ret_val int64
+    for _, i := range slice {
+        ret_val += i
+    }
+    return ret_val
+}
+
