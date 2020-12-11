@@ -1,5 +1,9 @@
 package utils
 
+import (
+    "fmt"
+)
+
 func Is_in_range(min int64, max int64, value int64) bool {
     return min <= value && value <= max
 }
@@ -21,7 +25,29 @@ func Unique_items(slice []string) []string {
     return unique
 }
 
-func Int_in_slice(element int, slice []int) bool {
+func Element_in_slice(element interface{}, slice interface{}) bool {
+
+    switch v := element.(type) {
+    case int:
+        return int_in_slice(element.(int), slice.([]int))
+    case int64:
+        return int64_in_slice(element.(int64), slice.([]int64))
+    default:
+        fmt.Println("Function not implemented for " + v.(string))
+    }
+    return false;
+}
+
+func int64_in_slice(element int64, slice []int64) bool {
+    for _, item := range slice {
+        if item == element {
+            return true
+        }
+    }
+    return false
+}
+
+func int_in_slice(element int, slice []int) bool {
     for _, item := range slice {
         if item == element {
             return true
@@ -48,4 +74,3 @@ func Sum_slice(slice []int64) int64 {
     }
     return ret_val
 }
-

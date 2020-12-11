@@ -28,7 +28,7 @@ func execute_instructions(instructions []string) ([]int, int) {
                 index += increment
         }
 
-        if utils.Int_in_slice(index, executed_instructions)  {
+        if utils.Element_in_slice(index, executed_instructions)  {
                 break
         }
 
