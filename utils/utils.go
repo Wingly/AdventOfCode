@@ -2,6 +2,7 @@ package utils
 
 import (
     "fmt"
+    "strconv"
 )
 
 func Is_in_range(min int64, max int64, value int64) bool {
@@ -26,12 +27,13 @@ func Unique_items(slice []string) []string {
 }
 
 func Element_in_slice(element interface{}, slice interface{}) bool {
-
     switch v := element.(type) {
     case int:
         return int_in_slice(element.(int), slice.([]int))
     case int64:
         return int64_in_slice(element.(int64), slice.([]int64))
+    case string:
+        return Find_index_of_string_in_slice(element.(string), slice.([]string)) != -1
     default:
         fmt.Println("Function not implemented for " + v.(string))
     }
@@ -73,4 +75,22 @@ func Sum_slice(slice []int64) int64 {
         ret_val += i
     }
     return ret_val
+}
+
+func String_slice_to_int64_slice(slice []string) []int64 {
+    int_slice := make([]int64, len(slice))
+    for i, s := range slice {
+        val, _ := strconv.ParseInt(s, 10, 64)
+        int_slice[i] = val
+    }
+    return int_slice
+}
+
+func Find_index_of_string_in_slice( s string, slice []string) int {
+    for i, val := range slice {
+        if val == s {
+            return i
+        }
+    }
+    return -1
 }
