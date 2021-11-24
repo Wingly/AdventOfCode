@@ -1,5 +1,1 @@
-# AdventOfCode2020
-
-Doing advent of code 2020 while also learning go.
-
-Expect suboptimal solutions.
+Advent of code. Maybe one day I will have all stars
