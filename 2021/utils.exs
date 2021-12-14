@@ -18,4 +18,8 @@ defmodule Utils do
     list = readLinesAsStringLists(filename, delim)
     Enum.map(list, fn ele -> Enum.map(ele, fn e -> String.to_integer(e) end) end)
   end
+
+  def sortString(value) do
+    String.split(value, "", trim: true) |> Enum.sort() |> Enum.join("")
+  end
 end
