@@ -16,3 +16,12 @@ function readall(filename)
     fh:close()
     return contents
   end
+
+function hasValue(array, value)
+    for _, v in ipairs(array) do
+        if v == value then
+            return true
+        end
+    end
+    return false
+end
