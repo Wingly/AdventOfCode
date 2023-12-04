@@ -40,14 +40,14 @@ function part2(games)
         }
         local data = {}
         for str in string.gmatch(g, "(%w+)") do
-             data[#data+1] = str
-         end
-         local i = 3
-         while i < #data do
+            data[#data+1] = str
+        end
+        local i = 3
+        while i < #data do
             if min[data[i+1]] < tonumber(data[i]) then
                 min[data[i+1]] = tonumber(data[i])
             end
-            i = i +2
+        i = i +2
         end
         retval = retval + min.blue * min.red * min.green
     end
