@@ -25,3 +25,25 @@ function hasValue(array, value)
     end
     return false
 end
+
+function printArray(array)
+    local arrStr = ''
+    for _, val in ipairs(array) do
+        arrStr = arrStr..'  '..tostring(val)
+    end
+    print(arrStr)
+end
+
+function print2DArray(array)
+
+    for _, arr in ipairs(array) do
+        printArray(arr)
+    end
+end
+
+function inBounds(value, bounds)
+    if value >= bounds[1] and value <= bounds[2] then
+        return true
+    end
+    return false
+end
