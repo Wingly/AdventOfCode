@@ -33,6 +33,9 @@ const traverser = (path, current, uniqueOnly) => {
     let x = current[1]
     let num = input[y][x]
     let totFound = []
+    if (knownNodes[`${y}-${x}`] && knownNodes[`${y}-${x}`].length > 0) {
+        return knownNodes[`${y}-${x}`]
+    }
 
     let up = y - 1 >= 0 ? input[y - 1][x] : -1
     let right = x + 1 <= width ? input[y][x + 1] : -1
