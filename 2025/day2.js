@@ -32,14 +32,19 @@ const part2 = input.reduce((invalid, current) => {
         for (let i = 1; i <= str.length / 2; i++) {
 
             if (str.length % i !== 0) continue
-            const parts = []
-            for (let j = 0; j < str.length; j += i) {
-                parts.push(str.slice(j, i + j))
+            const pattern = str.slice(0, i)
+            let found = true
+            for (let j = i; j < str.length; j += i) {
+                if (str.slice(j, j + i) !== pattern) {
+                    found = false
+                    break
+                }
             }
-            if (parts.every(part => part === parts[0])) {
+            if (found) {
                 invalid += num
                 break
             }
+
         }
         num++
     }
