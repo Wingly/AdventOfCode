@@ -1,4 +1,3 @@
-const { totalmem } = require('os')
 
 utils = require('./utils')
 
