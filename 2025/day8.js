@@ -9,19 +9,10 @@ const dist = (p1, p2) => {
 
 let distMap = []
 
-const uniquePositions = []
-
 for (let i = 0; i < input.length; i++) {
     const pos = input[i]
-    for (let j = i; j < input.length; j++) {
-        if (i === j) continue
+    for (let j = i + 1; j < input.length; j++) {
         const compPos = input[j]
-        if (!uniquePositions.includes(pos.join('-'))) {
-            uniquePositions.push(pos.join('-'))
-        }
-        if (!uniquePositions.includes(compPos.join('-'))) {
-            uniquePositions.push(compPos.join('-'))
-        }
         distMap.push({ p1: pos.join('-'), p2: compPos.join('-'), d: dist(pos, compPos) })
     }
 }
@@ -77,7 +68,7 @@ while (true) {
     } else {
         circuits.push([distMap[i].p1, distMap[i].p2])
     }
-    if (circuits[0].length === uniquePositions.length) {
+    if (circuits[0].length === max) {
         break
     }
     i++
